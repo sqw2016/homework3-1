@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>{{ msg }}</div>
+    <div v-text="msg"></div> 
+    <div v-html="rowHtml" v-on:mousedown.self.once.prevent="console.log($event);"></div> 
+    <input type="text" v-model="count" v-on:keydown="console.log($event.keyCode)" />
+  </div>
+  <script src="./src/dep.js"></script>
+  <script src="./src/watcher.js"></script>
+  <script src="./src/compiler.js"></script>
+  <script src="./src/observer.js"></script>
+  <script src="./src/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello Vue',
+        count: 0,
+        rowHtml: '<span style="color:red;">red text</span>'
+      }
+    })
+  </script>
+</body>
+</html>
